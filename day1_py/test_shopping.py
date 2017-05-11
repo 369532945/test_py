@@ -7,7 +7,6 @@ Goods = [
 ]
 
 L=[]
-#print(Goods)
 
 for i,value in enumerate(Goods):
     print(i,value)

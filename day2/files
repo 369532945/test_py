@@ -1,0 +1,50 @@
+编写一个程序，能在当前目录以及当前目录的所有子目录下查找文件名包含指定字符串的文件，并打印出相对路径
+
+import sys
+import os
+
+Dir = sys.argv[1]
+String = sys.argv[2]
+def findfile(path):
+    global String
+    Dirs = os.listdir(path)
+    #print(path)
+    for d in Dirs:
+      if os.path.isdir(os.path.join(path,d)):
+         Dir2 = os.path.join(path,d)
+         #print('.........',Dir2)
+         #findfile(Dir2)
+         if os.path.isdir(Dir2):
+            #print('the  dir is: %s' %(Dir2))
+            #print(os.path.isdir(os.path.join(path,d)))
+            findfile(Dir2)
+            #print(os.path.join(path,d))
+      else:
+         if String in d:
+            print('the  dir is %s ; the file is %s' %(path,d))
+findfile(Dir)
+
+
+============================================================
+import sys
+import os
+
+Dir = sys.argv[1]
+def findfile(path):
+    Dirs = os.listdir(path)
+    print(path)
+    for d in Dirs:
+      if os.path.isdir(os.path.join(path,d)):
+         Dir2 = os.path.join(path,d)
+         print('.........',Dir2)
+         #findfile(Dir2)
+         if os.path.isdir(Dir2):
+            print('the  dir is: %s' %(Dir2))
+            print(os.path.isdir(os.path.join(path,d)))
+            findfile(Dir2)
+            #print(os.path.join(path,d))
+      else:
+         print('the  dir is %s,the file is %s' %(path,d))
+findfile(Dir)
+
+

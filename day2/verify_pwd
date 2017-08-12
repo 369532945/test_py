@@ -37,12 +37,6 @@ def check_str_pwd(Pwd):
         lowerOK=check_str_lower(Pwd)
         numOK=check_str_num(Pwd)
         symbolOK=check_str_symbol(Pwd)
-
-        print(lenOK)
-        print(upperOK)
-        print(lowerOK)
-        print(numOK)
-        print(symbolOK)
         return (lenOK and upperOK and lowerOK and numOK and symbolOK)
 def main():
         string= input("输入大于等于6位的字符串(包含大小写数字特殊字符) >>:")

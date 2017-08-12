@@ -1,0 +1,55 @@
+import re
+
+def checklen(Pwd):
+        return len(Pwd) >=6
+
+def Match(A):
+        if A:
+                return True
+        else:
+                return False
+
+
+def check_str_upper(Pwd):
+        pattern = re.compile('[A-Z]+')
+        match = pattern.findall(Pwd)
+        #print(match)
+        Status=Match(match)
+        return Status
+def check_str_num(Pwd):
+        pattern = re.compile('[0-9]+')
+        match = pattern.findall(Pwd)
+        Status=Match(match)
+        return Status
+def check_str_lower(Pwd):
+        pattern = re.compile('[a-z]+')
+        match = pattern.findall(Pwd)
+        Status=Match(match)
+        return Status
+def check_str_symbol(Pwd):
+        pattern = re.compile('[^A-Za-z0-9]+')
+        match = pattern.findall(Pwd)
+        Status=Match(match)
+        return Status
+def check_str_pwd(Pwd):
+        lenOK=checklen(Pwd)
+        upperOK=check_str_upper(Pwd)
+        lowerOK=check_str_lower(Pwd)
+        numOK=check_str_num(Pwd)
+        symbolOK=check_str_symbol(Pwd)
+
+        print(lenOK)
+        print(upperOK)
+        print(lowerOK)
+        print(numOK)
+        print(symbolOK)
+        return (lenOK and upperOK and lowerOK and numOK and symbolOK)
+def main():
+        string= input("输入大于等于6位的字符串(包含大小写数字特殊字符) >>:")
+        if check_str_pwd(string):
+                print("检测通过")
+        else:
+                print("检测未通过")
+
+if __name__ == '__main__':
+        main()

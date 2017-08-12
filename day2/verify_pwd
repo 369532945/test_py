@@ -15,8 +15,9 @@ def check_str_upper(Pwd):
         pattern = re.compile('[A-Z]+')
         match = pattern.findall(Pwd)
         #print(match)
-        Status=Match(match)
-        return Status
+        #Status=Match(match)
+        #return Status
+        return Match(match)
 def check_str_num(Pwd):
         pattern = re.compile('[0-9]+')
         match = pattern.findall(Pwd)
